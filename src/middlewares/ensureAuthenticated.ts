@@ -3,13 +3,15 @@ import { verify } from 'jsonwebtoken'
 
 import authConfig from '../config/auth'
 
+import AppError from '../errors/AppError'
+
 interface TokeyPayload {
   iat: number
   exp: number
   sub: string
 }
 
-export default function esnureAuthenticated(
+export default function ensureAuthenticated(
   request: Request,
   response: Response,
   next: NextFunction,
@@ -17,7 +19,7 @@ export default function esnureAuthenticated(
   const authHeader = request.headers.authorization
 
   if (!authHeader) {
-    throw new Error('JWT token is missing')
+    throw new AppError('JWT token is missing', 401)
   }
 
   const [, token] = authHeader.split(' ')
@@ -33,6 +35,6 @@ export default function esnureAuthenticated(
 
     return next()
   } catch {
-    throw new Error('Invalid JWT token')
+    throw new AppError('Invalid JWT token', 401)
   }
 }
