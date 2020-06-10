@@ -30,7 +30,7 @@
         "argsIgnorePattern": "_"
       }],
       "@typescript-eslint/interface-name-prefix": ["error", {
-        "prefixWith": "always"
+        "prefixWithI": "always"
       }],
       "import/extensions": [
         "error",
@@ -48,3 +48,4 @@
     }
 
 }
+
