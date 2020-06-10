@@ -29,6 +29,9 @@
       "@typescript-eslint/no-unused-vars": ["error", {
         "argsIgnorePattern": "_"
       }],
+      "@typescript-eslint/interface-name-prefix": ["error", {
+        "prefixWith": "always"
+      }],
       "import/extensions": [
         "error",
         "ignorePackages",
