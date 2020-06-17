@@ -1,4 +1,3 @@
-import { hash } from 'bcryptjs'
 import { injectable, inject } from 'tsyringe'
 
 import AppError from '@shared/errors/AppError'
