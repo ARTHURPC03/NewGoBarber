@@ -1,9 +1,8 @@
-// import AppError from '@shared/errors/AppError'
-import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentRepository'
+import FakeAppointmentsRepository from '@modules/appointments/repositories/fakes/FakeAppointmentsRepository'
 import ListProviderMonthAvailabilityService from './ListProviderMonthAvailabilityService'
 
-let fakeAppointmentsRepository: FakeAppointmentsRepository
 let listProviderMonthAvailability: ListProviderMonthAvailabilityService
+let fakeAppointmentsRepository: FakeAppointmentsRepository
 
 describe('ListProviderMonthAvailability', () => {
   beforeEach(() => {
@@ -16,22 +15,57 @@ describe('ListProviderMonthAvailability', () => {
   it('should be able to list the month availability from provider', async () => {
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
-      date: new Date(2020, 5, 29, 11, 0, 0),
+      date: new Date(2020, 4, 20, 8, 0, 0),
     })
 
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
-      date: new Date(2020, 6, 29, 14, 0, 0),
+      date: new Date(2020, 4, 20, 9, 0, 0),
     })
 
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
-      date: new Date(2020, 6, 29, 16, 0, 0),
+      date: new Date(2020, 4, 20, 10, 0, 0),
     })
 
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
-      date: new Date(2020, 6, 30, 11, 0, 0),
+      date: new Date(2020, 4, 20, 11, 0, 0),
+    })
+
+    await fakeAppointmentsRepository.create({
+      provider_id: 'user',
+      date: new Date(2020, 4, 20, 12, 0, 0),
+    })
+
+    await fakeAppointmentsRepository.create({
+      provider_id: 'user',
+      date: new Date(2020, 4, 20, 13, 0, 0),
+    })
+
+    await fakeAppointmentsRepository.create({
+      provider_id: 'user',
+      date: new Date(2020, 4, 20, 14, 0, 0),
+    })
+
+    await fakeAppointmentsRepository.create({
+      provider_id: 'user',
+      date: new Date(2020, 4, 20, 15, 0, 0),
+    })
+
+    await fakeAppointmentsRepository.create({
+      provider_id: 'user',
+      date: new Date(2020, 4, 20, 16, 0, 0),
+    })
+
+    await fakeAppointmentsRepository.create({
+      provider_id: 'user',
+      date: new Date(2020, 4, 20, 17, 0, 0),
+    })
+
+    await fakeAppointmentsRepository.create({
+      provider_id: 'user',
+      date: new Date(2020, 4, 21, 8, 0, 0),
     })
 
     const availability = await listProviderMonthAvailability.execute({
@@ -42,10 +76,10 @@ describe('ListProviderMonthAvailability', () => {
 
     expect(availability).toEqual(
       expect.arrayContaining([
-        { day: 28, available: true },
-        { day: 29, available: false },
-        { day: 30, available: false },
-        { day: 1, available: true },
+        { day: 19, available: true },
+        { day: 20, available: false },
+        { day: 21, available: true },
+        { day: 22, available: true },
       ]),
     )
   })
