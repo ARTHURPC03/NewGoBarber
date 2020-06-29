@@ -1,20 +1,21 @@
 import AppError from '@shared/errors/AppError'
 
-import FakeAppointmentRepository from '../repositories/fakes/FakeAppointmentRepository'
+import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository'
 import CreateAppointmentService from './CreateAppointmentService'
 
-let fakeAppointmentRepository: FakeAppointmentRepository
+let fakeAppointmentsRepository: FakeAppointmentsRepository
 let createAppointment: CreateAppointmentService
 
 describe('CreateAppointment', () => {
   beforeEach(() => {
-    fakeAppointmentRepository = new FakeAppointmentRepository()
-    createAppointment = new CreateAppointmentService(fakeAppointmentRepository)
+    fakeAppointmentsRepository = new FakeAppointmentsRepository()
+    createAppointment = new CreateAppointmentService(fakeAppointmentsRepository)
   })
 
   it('should be able to create a new appointment', async () => {
     const appointment = await createAppointment.execute({
       date: new Date(),
+      user_id: '123123',
       provider_id: '123123',
     })
 
@@ -27,12 +28,14 @@ describe('CreateAppointment', () => {
 
     await createAppointment.execute({
       date: appointmentDate,
+      user_id: '123123',
       provider_id: '123123',
     })
 
     await expect(
       createAppointment.execute({
         date: appointmentDate,
+        user_id: '123123',
         provider_id: '123123',
       }),
     ).rejects.toBeInstanceOf(AppError)
