@@ -1,78 +1,45 @@
-# New GoBarber
+<h1 align="center">
+  <img alt="Logo" src="./github/logo.png" width="200px">
+</h1>
 
-Nova versão do GoBarber desenvolvido com TypeScript durante a nova jornada do GoStack
-
-## Em desenvolvimento...
-
-# Mapeando features do sistema:
-
-# Recuperação de senha
-
-**RF**
-
-- O usuário deve poder recuperar sua senha informando o seu e-mail:
-- O usuário deve receber um e-mail com instruções de recuperação de senha
-- O usuário deve poder resetar sua senha
-
-**RNF**
-
-- Utilizar Mailtrap para testar envios em ambiente de dev;
-- Utilizar Amazon SES para envios em produção;
-- O envio de e-mails deve acontecer em segundo plano (background job)
-
-**RN**
-
-- O link enviado por email para resetar senha, deve exipirar em 2h;
-- O usuário precisa confirmar a nova senha ao resetar sua senha;
+<p align="center">The best way to schedule your service!</p>
 
 
-# Atualização do perfil
+## 💇🏻‍♂️ About the project
 
-**RF**
+This api provides everything needed to organize appointments between the barbers and customers.
 
-- O usuário deve poder atualizar seu nome, email e senha;
+Customers can choose the best time available to them.
 
-**RN**
+Providers can see all their appointments, manage the times, also see if one client canceled the schedule.
 
-- O usuário não pode alterar seu email para um email já utilizado;
-- Para atualizar a senha, o usuário deve informar a senha antiga;
-- Para atualizar a senha, o usuário precisa confirmar a nova senha;
+---
+<div align="center" >
+  <img src="./github/NewGoBarber.gif" alt="demo-web" height="425">
+  <img src="./github/AppGobarber.gif" alt="demo-mobile" height="425">
+</div>
 
-# Painel do prestador
+To see the **web client**, click here: [GoBarber Web](https://github.com/ARTHURPC03/New-GoBarber-Web)<br />
+To see the **mobile client**, click here: [GoBarber Mobile](https://github.com/ARTHURPC03/AppNewGoBarber)
 
-**RF**
+## 🚀 Technologies
 
-- O usuário deve poder listar seus agendamentos de um dia específico;
-- O prestador deve receber uma notificação sempre que houver um novo agendamento;
-- O prestador deve poder visualizar as notificações não lidas;
+- [Node.js](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Express](https://expressjs.com/pt-br/)
+- [Multer](https://github.com/expressjs/multer)
+- [TypeORM](https://typeorm.io/#/)
+- [JWT-token](https://jwt.io/)
+- [uuid v4](https://github.com/thenativeweb/uuidv4/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Date-fns](https://date-fns.org/)
+- [Jest](https://jestjs.io/)
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [EditorConfig](https://editorconfig.org/)
 
-**RNF**
 
-- Os agendamentos do prestador no dia devem ser armazenados em cache;
-- As notificações do prestador devem ser armazenadas no MongoDB;
-- As notificações do prestador devem ser enviadas em tempo-real utilizando Socket.io;
 
-**RN**
-
-- A notificação deve ter um status de lida ou não-lida para que o prestador possa controlar;
-
-# Agendamento de serviços
-
-**RF**
-
-- O usuário deve poder listar todos prestadores de serviço cadastrados;
-- O usuário deve poder listar os dias de um mês com pelo menos um horário disponível de um prestador
-- O usuário deve poder listar horários disponíveis em um dia espefíco de um prestador;
-- O usuário deve poder realizar um novo agendamento com um prestador;
-
-**RNF**
-
-- A listagem de prestadores deve ser armazenada em cache;
-
-**RN**
-
-- Cada agendamento deve durar 1h exatamente;
-- Os agendamentos devem estar disponíveis entre 8h às 18h (Primeiro às 8h, último ás 17h);
-- O usuário não pode agendar em um horário já ocupado;
-- O usuário não pode agendar em um horário que já passou;
-- O usuário não pode agendar serviços consigo mesmo;
+Made with 💜 by ARTHUR PC 👋 [See my linkedin](https://www.linkedin.com/in/arthurpc03/)
+<br>
+ [See my youtube channel](https://www.youtube.com/c/arthurpc)
