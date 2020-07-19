@@ -11,7 +11,7 @@ interface IRequest {
   year: number
 }
 
-type IReponse = Array<{
+type IResponse = Array<{
   hour: number
   available: boolean
 }>
@@ -28,7 +28,7 @@ class ListProviderDayAvailabilityService {
     year,
     month,
     day,
-  }: IRequest): Promise<IReponse> {
+  }: IRequest): Promise<IResponse> {
     const appointments = await this.appointmentsRepository.findAllInDayFromProvider(
       {
         provider_id,
@@ -48,7 +48,7 @@ class ListProviderDayAvailabilityService {
     const currentDate = new Date(Date.now())
 
     const availability = eachHourArray.map(hour => {
-      const hasAppintmentInHour = appointments.find(
+      const hasAppointmentInHour = appointments.find(
         appointment => getHours(appointment.date) === hour,
       )
 
@@ -56,7 +56,7 @@ class ListProviderDayAvailabilityService {
 
       return {
         hour,
-        available: !hasAppintmentInHour && isAfter(compareDate, currentDate),
+        available: !hasAppointmentInHour && isAfter(compareDate, currentDate),
       }
     })
 
